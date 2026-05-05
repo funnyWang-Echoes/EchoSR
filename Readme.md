@@ -120,10 +120,10 @@ All datasets and visual results can be downloaded from [Baidu Netdisk](https://p
 
 The training and testing datasets used in our work are organized as follows:
 
-| Task          | Training Set                                                                                                                                                                                                                                                             | Testing Set                                 |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
+| Task          | Training Set                                                                                                                                                                                                                                                             | Testing Set                                |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
 | Classic SR    | [DIV2K](https://data.vision.ee.ethz.ch/cvl/DIV2K/) (800 training images) + [Flickr2K](https://cv.snu.ac.kr/research/EDSR/Flickr2K.tar) (2650 images) — [DF2K combined [download]](https://drive.google.com/file/d/1TubDkirxl4qAWelfOnpwaSKoj3KLAIG4/view?usp=share_link) | Set5 + Set14 + BSD100 + Urban100 + Manga109 |
-| Real-world SR | DF2K                                                                                                                                                                                                                                                                     | RealSRSet + RealLR200                       |
+| Real-world SR | DF2K                                                                                                                                                                                                                                                                     | RealSRSet                       |
 
 ## :hourglass: Training
 
