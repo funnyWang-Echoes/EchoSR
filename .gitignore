@@ -22,8 +22,6 @@ ckpt/
 # Generated visualization results (download from cloud drive)
 results/
 
-# Model zoo for comparison methods (download separately)
-analysis/model_zoo/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
