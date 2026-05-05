@@ -205,7 +205,7 @@ python basicsr/test.py -opt options/real/test/test_realesr_x4EchoSR.yml
 
 ### Test Comparison Methods
 
-Config files for comparison methods are available in `options/real/test/` (DAT, MambaIR, SwinIR, HIT-SIR, MAN, SeeMoRe, SRFormer) and `options/testOthers/`.
+Config files for comparison methods are available in `options/real/test/` (DAT, MambaIR, SwinIR, HIT-SIR, SeeMoRe, SRFormer) and `options/testOthers/`.
 
 ## 📊 Model Analysis
 
