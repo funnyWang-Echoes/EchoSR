@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Distribution archives
+*.zip
+*.zip.baiduyun.*
+
+# Benchmark datasets (download separately)
+benchmark/
+
+# Large model checkpoints (download from cloud drive)
+ckpt/
+
+# Generated visualization results (download from cloud drive)
+results/
+
+# Model zoo for comparison methods (download separately)
+analysis/model_zoo/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

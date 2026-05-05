@@ -1,0 +1,92 @@
+# general settings for image SR training
+name: EchoSR_SR_x2_light_DF2K
+model_type: EchoSRModel
+scale: 2
+num_gpu: 1
+manual_seed: 1
+
+# dataset and data loader settings
+datasets:
+  test_1:
+    name: Urban100
+    type: PairedImageDataset
+    dataroot_gt: F:\code\CodeProject\Hi-LKA\datasets\SR\Urban100\HR
+    dataroot_lq: F:\code\CodeProject\Hi-LKA\datasets\SR\Urban100\LR_bicubic\X2
+    filename_tmpl: '{}x2'
+    io_backend:
+      type: disk
+
+  test_2:
+    name: Set5
+    type: PairedImageDataset
+    dataroot_gt: F:\code\CodeProject\Hi-LKA\datasets\SR\Set5\HR
+    dataroot_lq: F:\code\CodeProject\Hi-LKA\datasets\SR\Set5\LR_bicubic\X2
+    filename_tmpl: '{}x2'
+    io_backend:
+      type: disk
+
+  test_3:
+    name: Set14
+    type: PairedImageDataset
+    dataroot_gt: F:\code\CodeProject\Hi-LKA\datasets\SR\Set14\HR
+    dataroot_lq: F:\code\CodeProject\Hi-LKA\datasets\SR\Set14\LR_bicubic\X2
+    filename_tmpl: '{}x2'
+    io_backend:
+      type: disk
+
+  test_4:
+    name: B100
+    type: PairedImageDataset
+    dataroot_gt: F:\code\CodeProject\Hi-LKA\datasets\SR\B100\HR
+    dataroot_lq: F:\code\CodeProject\Hi-LKA\datasets\SR\B100\LR_bicubic\X2
+    filename_tmpl: '{}x2'
+    io_backend:
+      type: disk
+
+  test_5:
+    name: Manga109
+    type: PairedImageDataset
+    dataroot_gt: F:\code\CodeProject\Hi-LKA\datasets\SR\Manga109\HR
+    dataroot_lq: F:\code\CodeProject\Hi-LKA\datasets\SR\Manga109\LR_bicubic\X2
+    filename_tmpl: '{}_LRBI_x2'
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+  type: EchoSR
+  upscale: 2
+  in_chans: 3
+  img_size: 72
+  img_range: 1.
+  d_state: 16
+  depths: [5,5,5,5]
+  kernel_sizes: [0, 5, 11, 17]
+  embed_dim: 60
+  mlp_ratio: 1.5
+  upsampler: 'pixelshuffledirect'
+  resi_connection: '1conv'
+
+# path
+path:
+  pretrain_network_g: F:\code\CodeProject\EchoSR_submit\experiments\EchoSR_x2_light_DF2K\models\EchoSR_x2_light_DF2K.pth
+  strict_load_g: true
+  resume_state: ~
+
+# validation settings
+val:
+  save_img: true
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 2
+      test_y_channel: true
+    ssim:
+      type: calculate_ssim
+      crop_border: 2
+      test_y_channel: true
+    LPIPS:
+      type: calculate_lpips
+      crop_border: 2

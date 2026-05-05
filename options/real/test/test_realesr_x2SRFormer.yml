@@ -1,0 +1,103 @@
+# general settings for image SR training
+name: SRFormerModelRealx2_test222
+model_type: SRRealModel
+scale: 2
+num_gpu: 1
+manual_seed: 1
+
+# dataset and data loader settings
+datasets:
+  test_3:
+    name: RealISR
+    type: PairedImageDataset
+    dataroot_gt: F:\code\CodeProject\EchoSR_submit\benchmark\RealSR\Test\2\HR
+    dataroot_lq: F:\code\CodeProject\EchoSR_submit\benchmark\RealSR\Test\2\LR
+    filename_tmpl: '{}_LR2'
+    io_backend:
+      type: disk
+  test_2:
+    name: Urban100
+    type: PairedImageDataset
+    dataroot_gt: F:\code\CodeProject\EchoSR_submit\benchmark\Urban100\HR
+    dataroot_lq: F:\code\CodeProject\EchoSR_submit\benchmark\Urban100\LR_bicubic\X2
+    filename_tmpl: '{}x2'
+    io_backend:
+      type: disk
+
+  test_4:
+    name: Set5
+    type: PairedImageDataset
+    dataroot_gt: F:\code\CodeProject\EchoSR_submit\benchmark\Set5\HR
+    dataroot_lq: F:\code\CodeProject\EchoSR_submit\benchmark\Set5\LR_bicubic\X2
+    filename_tmpl: '{}x2'
+    io_backend:
+      type: disk
+
+  test_1:
+    name: Set14
+    type: PairedImageDataset
+    dataroot_gt: F:\code\CodeProject\EchoSR_submit\benchmark\Set14\HR
+    dataroot_lq: F:\code\CodeProject\EchoSR_submit\benchmark\Set14\LR_bicubic\X2
+    filename_tmpl: '{}x2'
+    io_backend:
+      type: disk
+
+#  test_5:
+#    name: B100
+#    type: PairedImageDataset
+#    dataroot_gt: F:\code\CodeProject\EchoSR_submit\benchmark\B100\HR
+#    dataroot_lq: F:\code\CodeProject\EchoSR_submit\benchmark\B100\LR_bicubic\X2
+#    filename_tmpl: '{}x2'
+#    io_backend:
+#      type: disk
+#
+#  test_6:
+#    name: Manga109
+#    type: PairedImageDataset
+#    dataroot_gt: F:\code\CodeProject\EchoSR_submit\benchmark\Manga109\HR
+#    dataroot_lq: F:\code\CodeProject\EchoSR_submit\benchmark\Manga109\LR_bicubic\X2
+#    filename_tmpl: '{}_LRBI_x2'
+#    io_backend:
+#      type: disk
+
+# network structures
+network_g:
+  type: SRFormer
+  upscale: 2
+  in_chans: 3
+  img_size: 64
+  window_size: 16
+  img_range: 1.
+  depths: [6, 6, 6, 6]
+  embed_dim: 60
+  num_heads: [6, 6, 6, 6]
+  mlp_ratio: 2
+  upsampler: 'pixelshuffledirect'
+  resi_connection: '1conv'
+
+# path
+path:
+  pretrain_network_g: F:\code\CodeProject\EchoSR_submit\ckpt\真实超分\SRFormerModelRealx2\models\net_g_240000.pth
+  strict_load_g: true
+  resume_state: ~
+
+# validation settings
+val:
+  save_img: true
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 2
+      test_y_channel: true
+    ssim:
+      type: calculate_ssim
+      crop_border: 2
+      test_y_channel: true
+    niqe:
+      type: calculate_niqe
+      crop_border: 2
+    #    lpips:
+    #      type: calculate_lpips
+    #      crop_border: 2

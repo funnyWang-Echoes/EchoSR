@@ -1,0 +1,85 @@
+# general settings for image SR training
+name: MANx4
+model_type: SRModel
+scale: 4
+num_gpu: 1
+manual_seed: 1
+
+# dataset and data loader settings
+datasets:
+
+  test_1:
+    name: Urban100
+    type: PairedImageDataset
+    dataroot_gt: /mnt/data/WorkSpace/wbh/myMambaIR/datasets/SR/Urban100/HR
+    dataroot_lq: /mnt/data/WorkSpace/wbh/myMambaIR/datasets/SR/Urban100/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_2:
+    name: Set5
+    type: PairedImageDataset
+    dataroot_gt: /mnt/data/WorkSpace/wbh/myMambaIR/datasets/SR/Set5/HR
+    dataroot_lq: /mnt/data/WorkSpace/wbh/myMambaIR/datasets/SR/Set5/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_3:
+    name: Set14
+    type: PairedImageDataset
+    dataroot_gt: /mnt/data/WorkSpace/wbh/myMambaIR/datasets/SR/Set14/HR
+    dataroot_lq: /mnt/data/WorkSpace/wbh/myMambaIR/datasets/SR/Set14/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_4:
+    name: B100
+    type: PairedImageDataset
+    dataroot_gt: /mnt/data/WorkSpace/wbh/myMambaIR/datasets/SR/B100/HR
+    dataroot_lq: /mnt/data/WorkSpace/wbh/myMambaIR/datasets/SR/B100/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_5:
+    name: Manga109
+    type: PairedImageDataset
+    dataroot_gt: /mnt/data/WorkSpace/wbh/myMambaIR/datasets/SR/Manga109/HR
+    dataroot_lq: /mnt/data/WorkSpace/wbh/myMambaIR/datasets/SR/Manga109/LR_bicubic/X4
+    filename_tmpl: '{}_LRBI_x4'
+    io_backend:
+      type: disk
+
+
+# network structures
+network_g:
+  type: MAN
+  scale: 4 #or 3/4
+  n_resblocks: 24 # 5 for MAN-tiny; 24 for MAN-light; 36 for MAN
+  n_resgroups: 1
+  n_feats: 60 # 48 for MAN-tiny; 60 for MAN-light; 180 for MAN
+
+# path
+path:
+  pretrain_network_g: F:\code\CodeProject\EchoSR\analysis\ckpt\MAN-Light-x4.pth
+  strict_load_g: true
+  param_key_g: ~ # only for MAN, for MAN-T and MAN-L, using ~
+  resume_state: ~
+
+# validation settings
+val:
+  save_img: true
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 4
+      test_y_channel: true
+    ssim:
+      type: calculate_ssim
+      crop_border: 4
+      test_y_channel: true

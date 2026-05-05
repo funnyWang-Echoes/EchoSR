@@ -1,0 +1,93 @@
+# general settings for image SR training
+name: MANModelRealx4_test
+model_type: SRRealModel
+scale: 4
+num_gpu: 1
+manual_seed: 1
+
+# dataset and data loader settings
+datasets:
+  test_1:
+    name: RealISR
+    type: PairedImageDataset
+    dataroot_gt: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/RealSR(V3)/dataset/Test/4/HR
+    dataroot_lq: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/RealSR(V3)/dataset/Test/4/LR
+    filename_tmpl: '{}_LR4'
+    io_backend:
+      type: disk
+  test_2:
+    name: Urban100
+    type: PairedImageDataset
+    dataroot_gt: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/Urban100/HR
+    dataroot_lq: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/Urban100/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_3:
+    name: Set5
+    type: PairedImageDataset
+    dataroot_gt: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/Set5/HR
+    dataroot_lq: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/Set5/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_4:
+    name: Set14
+    type: PairedImageDataset
+    dataroot_gt: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/Set14/HR
+    dataroot_lq: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/Set14/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_5:
+    name: B100
+    type: PairedImageDataset
+    dataroot_gt: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/B100/HR
+    dataroot_lq: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/B100/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  test_6:
+    name: Manga109
+    type: PairedImageDataset
+    dataroot_gt: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/Manga109/HR
+    dataroot_lq: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/Manga109/LR_bicubic/X4
+    filename_tmpl: '{}_LRBI_x4'
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+  type: MAN
+  scale: 4 #or 3/4
+  n_resblocks: 24 # 5 for MAN-tiny; 24 for MAN-light; 36 for MAN
+  n_resgroups: 1
+  n_feats: 60 # 48 for MAN-tiny; 60 for MAN-light; 180 for MAN
+
+# path
+path:
+  pretrain_network_g: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/HLKNet/experiments/EchoSRModelRealx2/models/net_g_latest.pth
+  strict_load_g: true
+  resume_state: ~
+
+# validation settings
+val:
+  save_img: true
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 4
+      test_y_channel: true
+    ssim:
+      type: calculate_ssim
+      crop_border: 4
+      test_y_channel: true
+    lpips:
+      type: calculate_lpips
+      crop_border: 4 

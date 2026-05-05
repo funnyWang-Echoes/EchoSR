@@ -1,0 +1,178 @@
+# general settings
+name: mambaIRModelRealx2
+model_type: SRRealModel
+scale: 2
+num_gpu: 2
+manual_seed: 1
+
+# ----------------- options for synthesizing training data in RealESRGANModel ----------------- #
+# USM the ground-truth
+l1_gt_usm: True
+percep_gt_usm: True
+gan_gt_usm: False
+
+# the first degradation process
+resize_prob: [0.2, 0.7, 0.1]  # up, down, keep
+resize_range: [0.15, 1.5]
+gaussian_noise_prob: 0.5
+noise_range: [1, 30]
+poisson_scale_range: [0.05, 3]
+gray_noise_prob: 0.4
+jpeg_range: [30, 95]
+
+# the second degradation process
+second_blur_prob: 0.8
+resize_prob2: [0.3, 0.4, 0.3]  # up, down, keep
+resize_range2: [0.3, 1.2]
+gaussian_noise_prob2: 0.5
+noise_range2: [1, 25]
+poisson_scale_range2: [0.05, 2.5]
+gray_noise_prob2: 0.4
+jpeg_range2: [30, 95]
+
+gt_size: 128
+queue_size: 3200
+
+# dataset and data loader settings
+datasets:
+  train:
+    name: DF2K
+    type: RealESRGANDataset
+    dataroot_gt: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/datasets/DF2K/HR
+    # meta_info: datasets/DF2K/meta_info/meta_info_DF2Kmultiscale+OST_sub.txt
+    io_backend:
+      type: disk
+
+    blur_kernel_size: 21
+    kernel_list: ['iso', 'aniso', 'generalized_iso', 'generalized_aniso', 'plateau_iso', 'plateau_aniso']
+    kernel_prob: [0.45, 0.25, 0.12, 0.03, 0.12, 0.03]
+    sinc_prob: 0.1
+    blur_sigma: [0.2, 3]
+    betag_range: [0.5, 4]
+    betap_range: [1, 2]
+
+    blur_kernel_size2: 21
+    kernel_list2: ['iso', 'aniso', 'generalized_iso', 'generalized_aniso', 'plateau_iso', 'plateau_aniso']
+    kernel_prob2: [0.45, 0.25, 0.12, 0.03, 0.12, 0.03]
+    sinc_prob2: 0.1
+    blur_sigma2: [0.2, 1.5]
+    betag_range2: [0.5, 4]
+    betap_range2: [1, 2]
+
+    final_sinc_prob: 0.8
+
+    gt_size: 128
+    use_hflip: True
+    use_rot: False
+
+    # data loader
+    num_worker_per_gpu: 24
+    batch_size_per_gpu: 32
+    dataset_enlarge_ratio: 100
+    prefetch_mode: ~
+
+  # Uncomment these for validation
+  # val:
+  #   name: validation
+  #   type: PairedImageDataset
+  #   dataroot_gt: path_to_gt
+  #   dataroot_lq: path_to_lq
+  #   io_backend:
+  #     type: disk
+  val_1:
+    name: RealISR
+    type: PairedImageDataset
+    dataroot_gt: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/RealSR(V3)/dataset/Test/2/HR
+    dataroot_lq: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/RealSR(V3)/dataset/Test/2/LR
+    filename_tmpl: '{}_LR2'
+    io_backend:
+      type: disk
+  val_2:
+    name: Set14
+    type: PairedImageDataset
+    dataroot_gt: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/Set14/HR
+    dataroot_lq: /home/jovyan/boomcheng-work-shcdt/wangbinhao/SR/SR_benchmark/Set14/LR_bicubic/X2
+    filename_tmpl: '{}x2'
+    io_backend:
+      type: disk    
+
+# network structures
+network_g:
+  type: MambaIR
+  upscale: 2
+  in_chans: 3
+  # img_size: 64
+  img_range: 1.
+  d_state: 10
+  depths: [6, 6, 6, 6]
+  embed_dim: 60
+  mlp_ratio: 1.2
+  upsampler: 'pixelshuffledirect'
+  resi_connection: '1conv'
+
+
+# path
+path:
+  pretrain_network_g: ~
+  strict_load_g: true
+  resume_state: ~
+
+# training settings
+train:
+  optim_g:
+    type: Adam
+    #lr: !!float 2e-4
+    lr: !!float 2e-4
+    weight_decay: 0
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: MultiStepLR
+    milestones: [125000, 200000, 225000, 240000]
+    #milestones: [5000, 10000, 15000, 20000，25000，30000，35000]
+    gamma: 0.5
+
+  total_iter: 250000
+  warmup_iter: -1  # no warm up
+
+  # losses
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 1.0
+    reduction: mean
+
+# validation settings
+val:
+  val_freq: !!float 2.5e3
+  save_img: false
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 2
+      test_y_channel: true
+    ssim:
+      type: calculate_ssim
+      crop_border: 2
+      test_y_channel: true
+    # lpips:
+    #   type: calculate_lpips
+    #   crop_border: 2
+
+
+# logging settings
+logger:
+  print_freq: 500
+  save_checkpoint_freq: !!float 2.5e3
+  use_tb_logger: false
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
+
+
+
