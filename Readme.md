@@ -1,5 +1,3 @@
-
-
 ## EchoSR: Efficient Context Harnessing for Lightweight ImageSuper-Resolution
 
 > **Abstract:** Image super-resolution (SR) aims to reconstruct high-quality, high-resolution (HR) images from low-resolution (LR) inputs and plays a critical role in various downstream applications.
@@ -116,14 +114,14 @@ pip install -r requirements.txt
 
 ## 📊 Datasets
 
-All datasets and visual results can be downloaded from [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) (code: `Echo`), which includes: EchoSR classical SR visual results, real-world SR visual results, benchmark datasets (Set5, Set14, BSD100, Urban100, Manga109, RealSR test), RealSR training set, and real SR pretrained weights.
+All datasets and visual results can be downloaded from [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) (code: `Echo`), which includes: EchoSR classical SR visual results, real-world SR visual results, benchmark datasets (Set5, Set14, BSD100, Urban100, Manga109, RealSR test), and real SR pretrained weights.
 
 The training and testing datasets used in our work are organized as follows:
 
-| Task          | Training Set                                                                                                                                                                                                                                                             | Testing Set                                |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| Task          | Training Set                                                                                                                                                                                                                                                             | Testing Set                                 |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
 | Classic SR    | [DIV2K](https://data.vision.ee.ethz.ch/cvl/DIV2K/) (800 training images) + [Flickr2K](https://cv.snu.ac.kr/research/EDSR/Flickr2K.tar) (2650 images) — [DF2K combined [download]](https://drive.google.com/file/d/1TubDkirxl4qAWelfOnpwaSKoj3KLAIG4/view?usp=share_link) | Set5 + Set14 + BSD100 + Urban100 + Manga109 |
-| Real-world SR | DF2K                                                                                                                                                                                                                                                                     | RealSRSet                       |
+| Real-world SR | DF2K                                                                                                                                                                                                                                                                     | [RealSR](https://github.com/csjcai/RealSR)  |
 
 ## :hourglass: Training
 
