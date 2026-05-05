@@ -209,7 +209,7 @@ Config files for comparison methods are available in `options/real/test/` (DAT, 
 
 ## 📊 Model Analysis
 
-ERF (Effective Receptive Field) visualization and model complexity analysis code can be found at `./analysis/ERF/`.
+ERF (Effective Receptive Field) visualization and model complexity analysis code can be found at `./analysis/ERF/` and `./analysis/model_zoo/`.
 
 ## 🥰 Citation
 
