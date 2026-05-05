@@ -1,5 +1,13 @@
 ## EchoSR: Efficient Context Harnessing for Lightweight ImageSuper-Resolution
 
+<p align="center">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=funnyWang-Echoes.EchoSR" alt="visitors"/>
+
+[//]: # (  <img src="https://img.shields.io/github/stars/funnyWang-Echoes/EchoSR?style=social" alt="GitHub stars"/>)
+
+[//]: # (  <img src="https://img.shields.io/github/forks/funnyWang-Echoes/EchoSR?style=social" alt="GitHub forks"/>)
+</p>
+
 > **Abstract:** Image super-resolution (SR) aims to reconstruct high-quality, high-resolution (HR) images from low-resolution (LR) inputs and plays a critical role in various downstream applications.
 > Despite recent advancements, balancing reconstruction fidelity and computational efficiency remains a fundamental challenge, particularly in resource-constrained scenarios.
 > While existing lightweight methods attempt to expand receptive fields, many of them either incur substantial computational overhead, naively scale up kernel sizes, or lack mechanisms for coherent multi-scale integration, limiting their overall effectiveness and scalability.
