@@ -1,4 +1,4 @@
-## EchoSR: Efficient Context Harnessing for Lightweight ImageSuper-Resolution
+## EchoSR: Efficient Context Harnessing for Lightweight ImageSuper-Resolution [Accepted by Information Fusion]
 
 <p align="center">
   <img src="https://visitor-badge.laobi.icu/badge?page_id=funnyWang-Echoes.EchoSR" alt="visitors"/>
