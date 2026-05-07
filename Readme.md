@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://visitor-badge.laobi.icu/badge?page_id=funnyWang-Echoes.EchoSR" alt="visitors"/>
 
-[//]: # (  <img src="https://img.shields.io/github/stars/funnyWang-Echoes/EchoSR?style=social" alt="GitHub stars"/>)
+  <img src="https://img.shields.io/github/stars/funnyWang-Echoes/EchoSR?style=social" alt="GitHub stars"/>
 
 [//]: # (  <img src="https://img.shields.io/github/forks/funnyWang-Echoes/EchoSR?style=social" alt="GitHub forks"/>)
 </p>
