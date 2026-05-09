@@ -1,4 +1,4 @@
-## EchoSR: Efficient Context Harnessing for Lightweight ImageSuper-Resolution [Accepted by Information Fusion]
+## EchoSR: Efficient Context Harnessing for Lightweight Image Super-Resolution [Information Fusion 2026 🔥🔥🔥 IF 15.5]
 
 <p align="center">
   <img src="https://visitor-badge.laobi.icu/badge?page_id=funnyWang-Echoes.EchoSR" alt="visitors"/>
@@ -224,7 +224,18 @@ ERF (Effective Receptive Field) visualization and model complexity analysis code
 Please cite us if our work is useful for your research.
 
 ```
-placehoider
+@article{ZHAO2026104471,
+title = {EchoSR: Efficient Context Harnessing for Lightweight Image Super-Resolution},
+journal = {Information Fusion},
+pages = {104471},
+year = {2026},
+issn = {1566-2535},
+doi = {https://doi.org/10.1016/j.inffus.2026.104471},
+url = {https://www.sciencedirect.com/science/article/pii/S1566253526003507},
+author = {Hanli Zhao and Binhao Wang and Shihao Zhao and Tao Wang and Kaihao Zhang and Wanglong Lu},
+keywords = {Image super-resolution, Lightweight super-resolution, Context harnessing, Multi-scale feature fusion, Convolutional neural network},
+abstract = {Image super-resolution (SR) aims to reconstruct high-quality, high-resolution (HR) images from low-resolution (LR) inputs and plays a critical role in various downstream applications. Despite recent advancements, balancing reconstruction fidelity and computational efficiency remains a fundamental challenge, particularly in resource-constrained scenarios. While existing lightweight methods attempt to expand receptive fields, many of them either incur substantial computational overhead, naively scale up kernel sizes, or lack mechanisms for coherent multi-scale integration, limiting their overall effectiveness and scalability. To address these limitations, we propose EchoSR, an efficient context-harnessing framework for lightweight image super-resolution, which unifies multi-scale receptive field modeling and hierarchical context fusion. EchoSR decouples feature learning into disentangled local, multi-scale, and global modeling stages through an efficient context-harnessing strategy, and further promotes seamless cross-scale integration via a cross-scale overlapping fusion mechanism. Extensive experiments have shown that EchoSR consistently outperforms state-of-the-art lightweight super-resolution methods across multiple benchmarks, while also achieving a faster speed ( ∼ 2 × ). The source code is available at https://github.com/funnyWang-Echoes/EchoSR.}
+}
 ```
 
 ## License
