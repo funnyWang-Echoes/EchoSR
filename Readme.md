@@ -1,5 +1,7 @@
 ## EchoSR: Efficient Context Harnessing for Lightweight Image Super-Resolution [Information Fusion 2026 🔥🔥🔥 IF 15.5]
 
+[paper](https://www.sciencedirect.com/science/article/abs/pii/S1566253526003507)
+
 <p align="center">
   <img src="https://visitor-badge.laobi.icu/badge?page_id=funnyWang-Echoes.EchoSR" alt="visitors"/>
 
