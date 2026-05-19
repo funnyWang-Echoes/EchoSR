@@ -5,13 +5,12 @@
 
   <img src="https://img.shields.io/github/stars/funnyWang-Echoes/EchoSR?style=social" alt="GitHub stars"/>
 
-[//]: # (  <img src="https://img.shields.io/github/forks/funnyWang-Echoes/EchoSR?style=social" alt="GitHub forks"/>)
-<a href="http://arxiv.org/abs/2605.17470">
-  <img src="https://img.shields.io/badge/arXiv-2605.17470-b31b1b.svg" alt="arXiv">
-</a>
-<a href="https://www.sciencedirect.com/science/article/abs/pii/S1566253526003507">
-  <img src="https://img.shields.io/badge/ScienceDirect-Paper-orange.svg" alt="ScienceDirect">
-</a>
+   <a href="http://arxiv.org/abs/2605.17470">
+     <img src="https://img.shields.io/badge/arXiv-2605.17470-b31b1b.svg" alt="arXiv">
+   </a>
+   <a href="https://www.sciencedirect.com/science/article/abs/pii/S1566253526003507">
+     <img src="https://img.shields.io/badge/ScienceDirect-Paper-orange.svg" alt="ScienceDirect">
+   </a>
 </p>
 
 > **Abstract:** Image super-resolution (SR) aims to reconstruct high-quality, high-resolution (HR) images from
