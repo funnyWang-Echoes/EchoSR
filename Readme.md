@@ -1,21 +1,33 @@
 ## EchoSR: Efficient Context Harnessing for Lightweight Image Super-Resolution [Information Fusion 2026 🔥🔥🔥 IF 15.5]
 
-[paper](https://www.sciencedirect.com/science/article/abs/pii/S1566253526003507)
-
 <p align="center">
   <img src="https://visitor-badge.laobi.icu/badge?page_id=funnyWang-Echoes.EchoSR" alt="visitors"/>
 
   <img src="https://img.shields.io/github/stars/funnyWang-Echoes/EchoSR?style=social" alt="GitHub stars"/>
 
 [//]: # (  <img src="https://img.shields.io/github/forks/funnyWang-Echoes/EchoSR?style=social" alt="GitHub forks"/>)
+<a href="http://arxiv.org/abs/2605.17470">
+  <img src="https://img.shields.io/badge/arXiv-2605.17470-b31b1b.svg" alt="arXiv">
+</a>
+<a href="https://www.sciencedirect.com/science/article/abs/pii/S1566253526003507">
+  <img src="https://img.shields.io/badge/ScienceDirect-Paper-orange.svg" alt="ScienceDirect">
+</a>
 </p>
 
-> **Abstract:** Image super-resolution (SR) aims to reconstruct high-quality, high-resolution (HR) images from low-resolution (LR) inputs and plays a critical role in various downstream applications.
-> Despite recent advancements, balancing reconstruction fidelity and computational efficiency remains a fundamental challenge, particularly in resource-constrained scenarios.
-> While existing lightweight methods attempt to expand receptive fields, many of them either incur substantial computational overhead, naively scale up kernel sizes, or lack mechanisms for coherent multi-scale integration, limiting their overall effectiveness and scalability.
-> To address these limitations, we propose EchoSR, an efficient context-harnessing framework for lightweight image super-resolution, which unifies multi-scale receptive field modeling and hierarchical context fusion.
-> EchoSR decouples feature learning into disentangled local, multi-scale, and global modeling stages through an efficient context-harnessing strategy, and further promotes seamless cross-scale integration via a cross-scale overlapping fusion mechanism.
-> Extensive experiments have shown that EchoSR consistently outperforms state-of-the-art lightweight super-resolution methods across multiple benchmarks, while also achieving a faster speed $(\sim 2\times)$.
+> **Abstract:** Image super-resolution (SR) aims to reconstruct high-quality, high-resolution (HR) images from
+> low-resolution (LR) inputs and plays a critical role in various downstream applications.
+> Despite recent advancements, balancing reconstruction fidelity and computational efficiency remains a fundamental
+> challenge, particularly in resource-constrained scenarios.
+> While existing lightweight methods attempt to expand receptive fields, many of them either incur substantial
+> computational overhead, naively scale up kernel sizes, or lack mechanisms for coherent multi-scale integration, limiting
+> their overall effectiveness and scalability.
+> To address these limitations, we propose EchoSR, an efficient context-harnessing framework for lightweight image
+> super-resolution, which unifies multi-scale receptive field modeling and hierarchical context fusion.
+> EchoSR decouples feature learning into disentangled local, multi-scale, and global modeling stages through an
+> efficient context-harnessing strategy, and further promotes seamless cross-scale integration via a cross-scale
+> overlapping fusion mechanism.
+> Extensive experiments have shown that EchoSR consistently outperforms state-of-the-art lightweight super-resolution
+> methods across multiple benchmarks, while also achieving a faster speed $(\sim 2\times)$.
 
 <p align="center">
     <img src="figs/Model.png" style="border-radius: 15px">
@@ -33,12 +45,13 @@
 
 ## :page_with_curl: Model Summary
 
-All pretrained weights, datasets, and visual results are available via [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) (code: `Echo`).
+All pretrained weights, datasets, and visual results are available
+via [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) (code: `Echo`).
 
 ### Classic Lightweight SR (DIV2K)
 
 | Model           | Task              | model_weights                                                              |
-| --------------- | ----------------- | -------------------------------------------------------------------------- |
+|-----------------|-------------------|----------------------------------------------------------------------------|
 | EchoSR_light_x2 | Lightweight SR x2 | [link](experiments/EchoSR_x2_light_Div2K/models/EchoSR_x2_light_DIV2K.pth) |
 | EchoSR_light_x3 | Lightweight SR x3 | [link](experiments/EchoSR_x3_light_Div2K/models/EchoSR_x3_light_Div2K.pth) |
 | EchoSR_light_x4 | Lightweight SR x4 | [link](experiments/EchoSR_x4_light_Div2K/models/EchoSR_x4_light_Div2K.pth) |
@@ -46,7 +59,7 @@ All pretrained weights, datasets, and visual results are available via [Baidu Ne
 ### Classic Lightweight SR (DF2K)
 
 | Model           | Task              | model_weights                                                            |
-| --------------- | ----------------- | ------------------------------------------------------------------------ |
+|-----------------|-------------------|--------------------------------------------------------------------------|
 | EchoSR_light_x2 | Lightweight SR x2 | [link](experiments/EchoSR_x2_light_DF2K/models/EchoSR_x2_light_DF2K.pth) |
 | EchoSR_light_x3 | Lightweight SR x3 | [link](experiments/EchoSR_x3_light_DF2K/models/EchoSR_x3_light_DF2K.pth) |
 | EchoSR_light_x4 | Lightweight SR x4 | [link](experiments/EchoSR_x4_light_DF2K/models/EchoSR_x4_light_DF2K.pth) |
@@ -56,16 +69,18 @@ All pretrained weights, datasets, and visual results are available via [Baidu Ne
 
 ### Real-world SR
 
-Real-world SR weights are available via [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) (code: `Echo`).
+Real-world SR weights are available via [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) (code:
+`Echo`).
 
 | Model          | Task             | model_weights                                                             |
-| -------------- | ---------------- | ------------------------------------------------------------------------- |
+|----------------|------------------|---------------------------------------------------------------------------|
 | EchoSR_Real_x2 | Real-world SR x2 | [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) |
 | EchoSR_Real_x4 | Real-world SR x4 | [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) |
 
 ## 🥇 Results
 
-We achieve state-of-the-art performance on lightweight image super-resolution tasks. Detailed results can be found in the paper.
+We achieve state-of-the-art performance on lightweight image super-resolution tasks. Detailed results can be found in
+the paper.
 
 <details>
 <summary>Evaluation on Classic Lightweight SR (click to expand)</summary>
@@ -124,12 +139,15 @@ pip install -r requirements.txt
 
 ## 📊 Datasets
 
-All datasets and visual results can be downloaded from [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) (code: `Echo`), which includes: EchoSR classical SR visual results, real-world SR visual results, benchmark datasets (Set5, Set14, BSD100, Urban100, Manga109, RealSR test), and real SR pretrained weights.
+All datasets and visual results can be downloaded
+from [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) (code: `Echo`), which includes: EchoSR
+classical SR visual results, real-world SR visual results, benchmark datasets (Set5, Set14, BSD100, Urban100, Manga109,
+RealSR test), and real SR pretrained weights.
 
 The training and testing datasets used in our work are organized as follows:
 
 | Task          | Training Set                                                                                                                                                                                                                                                             | Testing Set                                 |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
 | Classic SR    | [DIV2K](https://data.vision.ee.ethz.ch/cvl/DIV2K/) (800 training images) + [Flickr2K](https://cv.snu.ac.kr/research/EDSR/Flickr2K.tar) (2650 images) — [DF2K combined [download]](https://drive.google.com/file/d/1TubDkirxl4qAWelfOnpwaSKoj3KLAIG4/view?usp=share_link) | Set5 + Set14 + BSD100 + Urban100 + Manga109 |
 | Real-world SR | DF2K                                                                                                                                                                                                                                                                     | [RealSR](https://github.com/csjcai/RealSR)  |
 
@@ -137,7 +155,8 @@ The training and testing datasets used in our work are organized as follows:
 
 ### Train Classic Lightweight SR
 
-1. Download the training datasets and place them in `datasets/DF2K`. Download testing datasets and place them in `datasets/SR`.
+1. Download the training datasets and place them in `datasets/DF2K`. Download testing datasets and place them in
+   `datasets/SR`.
 
 2. Follow the instructions below:
 
@@ -203,7 +222,9 @@ python basicsr/test.py -opt options/EchoSR_test/test_EchoSR_lite_SRx4_DF2K.yml
 
 ### Test Real-world SR
 
-1. Download the real SR pretrained weights from [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) (code: `Echo`) and place them in `ckpt`  or other place you want.
+1. Download the real SR pretrained weights
+   from [Baidu Netdisk](https://pan.baidu.com/s/1v515rjV4olk8vdBJ8jm0qA?pwd=Echo) (code: `Echo`) and place them in
+   `ckpt`  or other place you want.
 
 2. Update paths in `options/real/test/test_realesr_x2EchoSR.yml` and run:
 
@@ -215,11 +236,13 @@ python basicsr/test.py -opt options/real/test/test_realesr_x4EchoSR.yml
 
 ### Test Comparison Methods
 
-Config files for comparison methods are available in `options/real/test/` (DAT, MambaIR, SwinIR, HIT-SIR, SeeMoRe, SRFormer) and `options/testOthers/`.
+Config files for comparison methods are available in `options/real/test/` (DAT, MambaIR, SwinIR, HIT-SIR, SeeMoRe,
+SRFormer) and `options/testOthers/`.
 
 ## 📊 Model Analysis
 
-ERF (Effective Receptive Field) visualization and model complexity analysis code can be found at `./analysis/ERF/` and `./analysis/model_zoo/`.
+ERF (Effective Receptive Field) visualization and model complexity analysis code can be found at `./analysis/ERF/` and
+`./analysis/model_zoo/`.
 
 ## 🥰 Citation
 
@@ -246,4 +269,5 @@ This project is released under the [Apache 2.0 license](LICENSE).
 
 ## Acknowledgement
 
-This code is based on [BasicSR](https://github.com/XPixelGroup/BasicSR) and [MambaIR](https://github.com/csguoh/MambaIR). Thanks for their awesome work.
+This code is based on [BasicSR](https://github.com/XPixelGroup/BasicSR)
+and [MambaIR](https://github.com/csguoh/MambaIR). Thanks for their awesome work.
